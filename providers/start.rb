@@ -21,8 +21,7 @@ action :start_worker do
     cwd node[:spark][:base_dir]
     code <<-EOF
     . sbin/spark-config.sh
-# Spark >1.4.x
-    ./sbin/start-slave.sh #{new_resource.master_url}
+    ./sbin/start-slave.sh #{new_resource.worker_id} #{new_resource.master_url}
     EOF
      not_if "jps | grep Worker"
   end
