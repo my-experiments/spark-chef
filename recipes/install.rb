@@ -22,7 +22,7 @@ user node.hadoop_spark.user do
   action :create
   system true
   shell "/bin/bash"
-  not_if "getent passwd #{node.hadoop_spark.user}"
+  only_if "getent passwd #{node.hadoop_spark.user}"
 end
 
 group node.hadoop_spark.group do
