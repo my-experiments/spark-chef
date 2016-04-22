@@ -4,7 +4,7 @@ spark.master                 <%= @master_ip %>
 spark.driver.memory           <%= node.hadoop_spark.driver_memory %>
 spark.executor.memory         <%= node.hadoop_spark.executor_memory %>
 spark.eventLog.enabled        <%= node.hadoop_spark.eventlog_enabled %>
-spark.eventLog.dir            hdfs://<%= @namenode_ip %>:<%= node.apache_hadoop.nn.port %>/tmp
+spark.eventLog.dir            hdfs://<%= @master_ip %>:<%= node.apache_hadoop.nn.port %>/tmp
 spark.serializer              org.apache.spark.serializer.KryoSerializer
 spark.worker.cleanup.enabled  <%= node.hadoop_spark.worker.cleanup.enabled %>
 
